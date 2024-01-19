@@ -2,7 +2,6 @@ import Link from "next/link"
 //import Head from "next/head"
 import styles from "@/styles/styles.module.css"
 import Footer from "@/components/Footer"
-
 export default function Home() {
   return (
     <div className={styles.container} >
@@ -13,13 +12,13 @@ export default function Home() {
 </Head>*/}
 {/* Navbar */}
 <nav className={styles.navbar}>
-  <a href="#" className={styles.navbarBrand}>Home</a>
+  <Link href="/" className={styles.navbarBrand}>Home</Link>
   <ul className={styles.navbarNav}>
     <li className={styles.navbarItem}>
-      <a href="#" className={styles.navLink}>Ayuda</a>
+      <Link href="/pages/ayuda" className={styles.navLink}>Ayuda</Link>
     </li>
     <li className={styles.navbarItem}>
-      <a href="#" className={styles.navLink}>Sesion</a>
+      <Link href="/pages/sesion" className={styles.navLink}>Sesion</Link>
     </li>
   </ul>
 </nav>
