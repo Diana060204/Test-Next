@@ -1,45 +1,31 @@
 "use client"
-import Link from "next/link";
-import { useState } from "react";
+import Link from "next/link"
+import { useState } from "react"
 
-const Register = ({ onClose }) => { // Destructura las props correctamente
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+const Register = (props: { onClose: any }) => { // Destructuring props correctly
+  const { onClose } = props; // Destructuring props
 
-    const handledRegister = () => {
-        console.log(`Login con correo: ${email}, contraseña: ${password}`);
-    };
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
-    return (
-        <div >
-        <div >
-                <h2>Registro</h2>
-                <label htmlFor="email">Correo: </label>
-                <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => {
-                        setEmail(e.target.value);
-                    }}
-                />
-                <label htmlFor="password">Contraseña</label>
-                <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => {
-                        setPassword(e.target.value);
-                    }}
-                />
-                <button onClick={handledRegister}>Registrar</button>
-                <p>
-                    ¿Ya tienes cuenta? <Link href="/pages/login" passHref>Login</Link>
-                </p>
-                <button onClick={onClose}>Cerrar</button> {/* Utiliza onClose como función de cierre */}
-            </div>
-        </div>
-    );
-};
+  const handledRegister = () => {
+    console.log(`Login con correo: ${email}, contraseña: ${password}`)
+  }
+
+  return (
+    <div>
+      <div>
+        <h2>Iniciar sesion</h2>
+        <label htmlFor="email">Correo: </label>
+        <input type="email" id="email" value={email} onChange={(e) => { setEmail(e.target.value); }} />
+        <label htmlFor="password">Contraseña</label>
+        <input type="password" id="password" value={password} onChange={(e) => { setPassword(e.target.value); }} />
+        <button onClick={handledRegister}>Iniciar Sesion</button>
+        <p>No tienes cuenta?<Link href="/pages/registro" passHref>Registrate</Link></p>
+        <button onClick={onClose}>Cerrar</button>
+      </div>
+    </div>
+  )
+}
 
 export default Register;
